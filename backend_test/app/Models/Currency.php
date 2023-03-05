@@ -11,5 +11,9 @@ class Currency extends Model
     protected $fillable = [
         'rate',
         'name',  
+        
     ];
+    public function goal(){
+        return $this->hasOne(Goal::class);
+    }
 }

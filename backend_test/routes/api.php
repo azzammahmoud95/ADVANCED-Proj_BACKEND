@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\FixedKeyController;
+use App\Http\Controllers\GoalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +42,10 @@ Route::Get('/key/{id}',[FixedKeyController::class,'getFixedKey']);
 Route::post('/key',[FixedKeyController::class,'addFixedKey']);
 Route::delete('/key/{id}',[FixedKeyController::class,'deleteFixedKey']);
 Route::Patch('/key/{id}',[FixedKeyController::class,'editFixedKey']);
+
+//Goal Routes
+Route::get('/goal',[GoalController::class,'getAllGoal']);
+Route::get('/goal/{id}',[GoalController::class,'getGoal']);
+Route::post('/goal',[GoalController::class,'addGoal']);
+Route::patch('/goal/{id}',[GoalController::class,'editGoal']);
+Route::delete('/goal/{id}',[GoalController::class,'deleteGoal']);

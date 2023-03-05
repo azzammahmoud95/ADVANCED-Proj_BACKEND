@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('goals', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('currency_id');
-            // $table->foreign('currency_id')->references('id')->on('currencies');
-            $table->string('schedule');
+            
+            $table->unsignedBigInteger('currency_id');
+            $table->foreign('currency_id')->references('id')->on('currencies');
+
+            $table->enum('schedule', ['weekly', 'monthly','yearly']);
+            $table->unsignedDecimal('amount');
             $table->timestamps();
         });
     }
