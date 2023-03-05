@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('fixed_keys', function (Blueprint $table) {
             $table->id();
+            $table-> string('title',15);
+            $table-> string('description',150);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Fixed_key extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',  
+        'is_active',
+    ];
 }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('currencies', function (Blueprint $table) {
             $table->id();
+            $table->char('name',5);
+            $table->float('rate')->unsigned();
             $table->timestamps();
         });
     }

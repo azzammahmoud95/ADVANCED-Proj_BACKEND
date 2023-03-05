@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('recurring_transactions', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->decimal('amount')->unsigned()->default(0);
+            // $table->unsignedBigInteger('currency_id');
+            // $table->foreign('currency_id')->references('id')->on('currencies');
+            $table->date('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->date('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            // $table->unsignedBigInteger('category_id');
+            // $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
