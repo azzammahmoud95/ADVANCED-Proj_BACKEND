@@ -14,7 +14,7 @@ class CategoryController extends Controller
         $name = $request->input('name');
         $type_code = $request->input('type_code');
         $request->validate([
-            'type_code' => 'required|in:incomes,expenses',
+            // 'type_code' => 'required|in:incomes,expenses',
             'name' => 'required',
         ]);
 

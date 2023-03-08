@@ -13,4 +13,7 @@ class Fixed_key extends Model
         'description',  
         'is_active',
     ];
+    public function fixedtrans(){
+        return $this->hasMany(Fixed_transaction::class);
+    }
 }

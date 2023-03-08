@@ -12,4 +12,7 @@ class Category extends Model
         'name',
         'type_code',
     ];
+    public function fixedtrans(){
+        return $this->hasMany(Fixed_transaction::class);
+    }
 }

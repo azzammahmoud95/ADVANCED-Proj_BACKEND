@@ -4,8 +4,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CurrencyController;
 use App\Http\Controllers\FixedKeyController;
 use App\Http\Controllers\GoalController;
+use App\Http\Controllers\FixedTransController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,24 @@ Route::get('/goal/{id}',[GoalController::class,'getGoal']);
 Route::post('/goal',[GoalController::class,'addGoal']);
 Route::patch('/goal/{id}',[GoalController::class,'editGoal']);
 Route::delete('/goal/{id}',[GoalController::class,'deleteGoal']);
+
+// Fixed Transactions
+Route::post('/fixedtransaction',[FixedTransController::class,'addFixedTransaction']);
+// Route::patch('/fixedtransaction/{id}',[FixedTransController::class,'editFixedTransaction']);
+// Route::delete('/fixedtransaction/{id}',[FixedTransController::class,'deleteFixedTransaction']);
+Route::get('/fixedtransaction',[FixedTransController::class,'getAllFixedTransactions']);
+Route::get('/fixedtransaction/{id}',[FixedTransController::class,'getFixedTransactionById']);
+// Route::get('/fixedtransaction', [FixedTransController::class,'getBy']);
+
+
+
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/admin-profile', [AuthController::class, 'adminProfile']);    
+});
